@@ -1,0 +1,39 @@
+class FirstNonRepeating {
+	 static char findFirst (String input) {
+	 int[] found = new int[256];
+	 char[] chars = input.toCharArray();
+     
+	 for(int i=0; i< chars.length; i++) 
+	 found[chars[i]]++;
+	 
+	 for(int i=0; i< chars.length; i++){
+	 if(found[chars[i]]==1) {
+	 return chars[i];
+	 }}
+	return 0;
+	 }
+	 
+
+ public static boolean  doTestsPass()
+  {
+ String[] input={"apple","racecars","ababdc"};
+ char[] output={'a','e','d'};
+ 
+   boolean result=true;
+ for(int i=0;i<input.length;i++)
+      {
+      result=result && findFirst(input[i])==output[i];
+      if(!result)
+        {System.out.println("Test failed for" + input[i]);
+        }
+      else {
+        System.out.println("Test passed for "+input[i]);
+        return result;
+       }}
+ return result;
+      }
+public static void main(String[] args)
+  {
+  doTestsPass();
+  }
+  }
